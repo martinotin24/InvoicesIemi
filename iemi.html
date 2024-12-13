@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="iemi.css">
+    <script src="iemi.js"></script>
+    <link rel="icon" href="logo.jpg" type="image/jpg">
+
+    <title>Generador de Proformas</title>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Proforma Nº: A-024-<input type="number" id="idinvoice" placeholder="Proforma N°"></h1>
+
+        <div class="form-section">
+            <div class="form-row">
+                <label for="client">Cliente:</label>
+                <input type="text" id="client" placeholder="Nombre del cliente">
+            </div>
+            <div class="form-row">
+                <label for="attention">Atención:</label>
+                <input type="text" id="attention" placeholder="Persona a atender">
+            </div>
+            <div class="form-row">
+                <label for="date">Fecha:</label>
+                <input type="date" id="date">
+            </div>
+            <div class="form-row">
+                <label for="address">Dirección:</label>
+                <input type="text" id="address" placeholder="Dirección completa">
+            </div>
+            <div class="form-row">
+                <label for="phone">Teléfono:</label>
+                <input type="text" id="phone" placeholder="Número de teléfono">
+            </div>
+            <div class="form-row">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" placeholder="Correo electrónico">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="form-section">
+            <div class="form-row">
+                <label for="validity">Validez:</label>
+                <input type="text" id="validity" placeholder="Días de validez">
+            </div>
+            <div class="form-row">
+                <label for="delivery">Entrega:</label>
+                <input type="text" id="delivery" placeholder="Fecha de entrega">
+            </div>
+            <div class="form-row">
+                <label for="payment">Pago:</label>
+                <input type="text" id="payment" placeholder="Método de pago">
+            </div>
+            <div class="form-row">
+                <label for="warranty">Garantía:</label>
+                <input type="text" id="warranty" placeholder="Duración de la garantía">
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>Productos</h2>
+        <table id="products-table">
+            <thead>
+                <tr>
+                    <th>Ítem</th>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                    <th>V. Unitario</th>
+                    <th>Valor Total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be added dynamically -->
+            </tbody>
+        </table>
+        <button class="btn add-btn" onclick="addProductRow()">Añadir Producto</button>
+
+        <div class="summary">
+            <p>Subtotal: $<span id="subtotal">0.00</span></p>
+            <p>IVA (15%): $<span id="iva">0.00</span></p>
+            <p>Total: $<span id="total">0.00</span></p>
+        </div>
+
+        <button class="btn" onclick="generatePDF()">Generar PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</body>
+</html>
